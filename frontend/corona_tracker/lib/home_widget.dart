@@ -1,13 +1,10 @@
+import 'package:corona_tracker/i18n/appLocalizations.dart';
 import 'package:corona_tracker/navigation/ContactScreen.dart';
 import 'package:corona_tracker/navigation/HelpScreen.dart';
 import 'package:corona_tracker/navigation/MapScreen.dart';
-import 'package:corona_tracker/navigation/StatusScreen.dart';
 import 'package:corona_tracker/navigation/ReportScreen.dart';
-import 'package:corona_tracker/i18n/appLocalizations.dart';
-
+import 'package:corona_tracker/navigation/StatusScreen.dart';
 import 'package:flutter/material.dart';
-
-
 
 class Home extends StatefulWidget {
   @override
@@ -18,47 +15,47 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   int _currentIndex = 0;
+
   final List<Widget> _children = [
     StatusScreen(),
     MapScreen(),
     ReportScreen(),
     HelpScreen(),
-    ContactScreen()
+    ContactScreen(),
   ];
 
   @override
   Widget build(BuildContext context) {
+    final localization = AppLocalizations.of(context);
+
     return Scaffold(
-      /*appBar: AppBar(
-        title: Text('My Flutter App'),
-      ),*/
       body: _children[_currentIndex],
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
         onTap: onTabTapped,
-        currentIndex: _currentIndex, // this will be set when a new tab is tapped
+        currentIndex: _currentIndex,
         items: [
           BottomNavigationBarItem(
-            icon: new Icon(Icons.people),
-            title: new Text(AppLocalizations.of(context).bottomNavigationBarStatusText),
+            icon: const Icon(Icons.people),
+            title: Text(localization.bottomNavigationBarStatusText),
           ),
           BottomNavigationBarItem(
-            icon: new Icon(Icons.map),
-            title: new Text(AppLocalizations.of(context).bottomNavigationBarMapText),
+            icon: const Icon(Icons.map),
+            title: Text(localization.bottomNavigationBarMapText),
           ),
           BottomNavigationBarItem(
-              icon: new Icon(Icons.report),
-              title: new Text(AppLocalizations.of(context).bottomNavigationBarReportText),
+            icon: const Icon(Icons.report),
+            title: Text(localization.bottomNavigationBarReportText),
           ),
           BottomNavigationBarItem(
-              icon: new Icon(Icons.help),
-              title: new Text(AppLocalizations.of(context).bottomNavigationBarHelpText)
+            icon: const Icon(Icons.help),
+            title: Text(localization.bottomNavigationBarHelpText),
           ),
           BottomNavigationBarItem(
-              icon: new Icon(Icons.person_add),
               // TODO: i18n
               title: new Text('Freunde')
-          )
+            icon: const Icon(Icons.person_add),
+          ),
         ],
       ),
     );
