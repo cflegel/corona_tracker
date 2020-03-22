@@ -101,6 +101,14 @@ class AppLocalizations{
     );
   }
 
+  String get bottomNavigationBarFriendsText {
+    return Intl.message(r'Friends',
+      name: r'bottomNavigationBarFriendsText',
+      desc: r'The Text for the friends button',
+      locale: localeName,
+    );
+  }
+
 /* Help Screen */
 
   String get HelpScreen_AppBarTitleText{

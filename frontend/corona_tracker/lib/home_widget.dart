@@ -52,9 +52,8 @@ class _HomeState extends State<Home> {
             title: Text(localization.bottomNavigationBarHelpText),
           ),
           BottomNavigationBarItem(
-              // TODO: i18n
-              title: new Text('Freunde')
             icon: const Icon(Icons.person_add),
+            title: Text(localization.bottomNavigationBarFriendsText),
           ),
         ],
       ),
