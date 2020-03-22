@@ -1,10 +1,6 @@
 //https://www.who.int/news-room/q-a-detail/q-a-coronaviruses#:~:text=symptoms
 
-enum Status {
-  uninfectious,
-  infectious,
-  suspicion
-}
+enum Status { uninfectious, infectious, suspicion }
 
 enum Symptoms {
   fever,
@@ -20,11 +16,10 @@ enum Symptoms {
 class User {
   static const String status = '';
 
-
 // TODO: Needs an alternative as internationalization depends on context
 // Which isn't available here
   String typesOfStatus(Status status) {
-    switch(status) {
+    switch (status) {
       case Status.uninfectious:
         return "Nicht ansteckend";
         break;

@@ -1,19 +1,18 @@
 import 'package:flutter/material.dart';
 
 class HelpScreen extends StatelessWidget {
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: const Text('Hilfe'),
-        ),
-        body: ListView.builder(
-          itemBuilder: (BuildContext context, int index) =>
-              EntryItem(data[index]),
-          itemCount: data.length,
-        ),
-      );
+      appBar: AppBar(
+        title: const Text('Hilfe'),
+      ),
+      body: ListView.builder(
+        itemBuilder: (BuildContext context, int index) =>
+            EntryItem(data[index]),
+        itemCount: data.length,
+      ),
+    );
   }
 }
 
@@ -73,16 +72,17 @@ class EntryItem extends StatelessWidget {
       children: <Widget>[
         new Container(
           child: Text(
-              root.description,
-              style: TextStyle(
-                  fontStyle: FontStyle.italic,
-                  fontSize: 17
-              )
+            root.description,
+            style: TextStyle(fontStyle: FontStyle.italic, fontSize: 17),
           ),
-          margin: const EdgeInsets.only(top:10.0, left: 10.0, right:10.0, bottom: 10.0),
+          margin: const EdgeInsets.only(
+            top: 10.0,
+            left: 10.0,
+            right: 10.0,
+            bottom: 10.0,
+          ),
           decoration: BoxDecoration(
             color: Colors.blueGrey[100],
-
           ),
         ),
       ],

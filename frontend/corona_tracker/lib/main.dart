@@ -1,20 +1,20 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:corona_tracker/i18n/appLocalizations.dart';
-import 'home_widget.dart';
 import 'dart:async';
 
-import 'package:unique_id/unique_id.dart';
+import 'package:corona_tracker/i18n/appLocalizations.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'globals.dart' as globals;
+import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:unique_id/unique_id.dart';
 
+import 'globals.dart' as globals;
+import 'home_widget.dart';
 
 void main() => runApp(MyApp());
 
 class MyApp extends StatefulWidget {
   // This widget is the root of your application.
   @override
-  _MyAppState createState() => new _MyAppState();
+  _MyAppState createState() => _MyAppState();
 }
 
 class _MyAppState extends State<MyApp> {
@@ -37,7 +37,9 @@ class _MyAppState extends State<MyApp> {
     // If the widget was removed from the tree while the asynchronous platform
     // message was in flight, we want to discard the reply rather than calling
     // setState to update our non-existent appearance.
-    if (!mounted) return;
+    if (!mounted) {
+      return;
+    }
 
     setState(() {
       globals.deviceId = uniqueID;
@@ -47,19 +49,20 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        theme: ThemeData(primarySwatch: Colors.blueGrey), 
-        home: Home(),
-        localizationsDelegates: [
-          // ... app specific delegates
-          const AppLocalizationsDelegate(),
-          GlobalMaterialLocalizations.delegate,
-          GlobalWidgetsLocalizations.delegate,
-          // TBD: Necessary at this point? probably not - garhon
-          GlobalCupertinoLocalizations.delegate
-        ],
-        supportedLocales: [
-          const Locale('en', ''), // English 
-          const Locale('de', ''), // German
-        ]);
+      theme: ThemeData(primarySwatch: Colors.blueGrey),
+      home: Home(),
+      localizationsDelegates: [
+        // ... app specific delegates
+        const AppLocalizationsDelegate(),
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+        // TBD: Necessary at this point? probably not - garhon
+        GlobalCupertinoLocalizations.delegate
+      ],
+      supportedLocales: [
+        const Locale('en', ''), // English
+        const Locale('de', ''), // German
+      ],
+    );
   }
 }
