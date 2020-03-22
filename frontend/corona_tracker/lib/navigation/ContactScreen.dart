@@ -157,13 +157,13 @@ class ContactScreenFormState extends State<ContactScreenForm> {
             FlatButton(
               onPressed: () {
                 setState(() {
-                  if (selectionToggleText == "Alle nicht auswählen") {
+                  if (selectionToggleText == "Nichts auswählen") {
                     selectionToggleText = "Alle auswählen";
                     for (int i = 0; i < contactItems.length; i++) {
                       contactItems[i][0] = "FALSE";
                     }
                   } else if (selectionToggleText == "Alle auswählen") {
-                    selectionToggleText = "Alle nicht auswählen";
+                    selectionToggleText = "Nichts auswählen";
                     for (int i = 0; i < contactItems.length; i++) {
                       contactItems[i][0] = "TRUE";
                     }
