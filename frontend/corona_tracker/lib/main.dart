@@ -63,6 +63,7 @@ class _MyAppState extends State<MyApp> {
         const Locale('en', ''), // English
         const Locale('de', ''), // German
       ],
+      debugShowCheckedModeBanner: false,
     );
   }
 }
